@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/*
+  Night-market palette — dark ink ground, jade accent, bone type, brass highlight.
+  Token names kept so existing Tailwind classes (bg-soft-vanilla, text-cocoa, etc.) remap.
+*/
+@theme {
+  --color-cocoa: #e8e2d4;
+  --color-roasted: #2f8f7a;
+  --color-walnut: #8fa399;
+  --color-vanilla: #101816;
+  --color-soft-vanilla: #070b0a;
+  --color-rice: #17211d;
+  --color-ash: #4a5c55;
+  --color-deep-ash: #7d9088;
+  --color-charcoal: #030605;
+  --color-moss: #1f4d42;
+  --color-accent: #d4a84b;
+
+  --font-display: "Fraunces", "Be Vietnam Pro", serif;
+  --font-body: "Manrope", "Be Vietnam Pro", sans-serif;
+  --font-viet: "Be Vietnam Pro", "Manrope", sans-serif;
+}
+
+:root {
+  --cocoa: #e8e2d4;
+  --roasted: #2f8f7a;
+  --walnut: #8fa399;
+  --vanilla: #101816;
+  --soft-vanilla: #070b0a;
+  --rice: #17211d;
+  --ash: #4a5c55;
+  --deep-ash: #7d9088;
+  --charcoal: #030605;
+  --moss: #1f4d42;
+  --accent: #d4a84b;
+  --nav-h: 84px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--soft-vanilla);
+  color: var(--cocoa);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--roasted);
+  color: var(--soft-vanilla);
+}
+
+:focus-visible {
+  outline: 2px solid var(--roasted);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.font-viet {
+  font-family: var(--font-viet);
+}
+
+.texture-rice {
+  background-image:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(47, 143, 122, 0.12) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(212, 168, 75, 0.06) 0%,
+      transparent 40%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+  background-size: auto, auto, 180px 180px;
+}
+
+.texture-linen {
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(232, 226, 212, 0.025) 2px,
+      rgba(232, 226, 212, 0.025) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(47, 143, 122, 0.03) 2px,
+      rgba(47, 143, 122, 0.03) 3px
+    );
+}
+
+.texture-plaster {
+  background-image: radial-gradient(
+      ellipse at 20% 30%,
+      rgba(47, 143, 122, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(212, 168, 75, 0.05) 0%,
+      transparent 45%
+    );
+}
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  background: var(--roasted);
+  color: var(--soft-vanilla);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  transition: color 0.35s ease;
+  z-index: 0;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cocoa);
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  color: var(--soft-vanilla);
+}
+
+.btn-primary:hover::before {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--cocoa);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--ash);
+  transform-origin: left;
+  transition: background 0.3s ease, transform 0.35s ease;
+}
+
+.btn-secondary:hover::after {
+  background: var(--roasted);
+  transform: scaleX(1.05);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+@media (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+}

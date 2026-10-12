@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.15  0 0 0 0 0.1  0 0 0 0.12 0"/>
+    </filter>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#FAF1DF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3A2923" stop-opacity="0.35"/>
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#FAF1DF"/>
+  <rect width="100%" height="100%" fill="url(#vignette)"/>
+  
+      <rect x="380" y="280" width="440" height="420" rx="20" fill="#E6D5B7"/>
+      <ellipse cx="520" cy="420" rx="55" ry="140" fill="#8A3E32" transform="rotate(12 520 420)"/>
+      <ellipse cx="640" cy="440" rx="50" ry="130" fill="#A35A3C" transform="rotate(-8 640 440)"/>
+      <ellipse cx="580" cy="620" rx="120" ry="40" fill="#7B8065" opacity="0.7"/>
+    
+  <rect width="100%" height="100%" filter="url(#grain)" opacity="0.55"/>
+  <text x="48" y="852" font-family="Georgia, serif" font-size="28" fill="#F2E4C8" opacity="0.55">Nem Nướng</text>
+</svg>
